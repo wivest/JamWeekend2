@@ -9,6 +9,13 @@ func _ready() -> void:
 	mass = primary_mass + rifle.get_mass()
 
 
+func _process(_delta: float) -> void:
+	if position.y > get_viewport_rect().size.y / 2:
+		get_tree().reload_current_scene()
+	if rifle.bullets == 0 and linear_velocity == Vector2.ZERO:
+		get_tree().reload_current_scene()
+
+
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == 1 and event.pressed:
