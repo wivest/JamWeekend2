@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccrnw2pgddnk8"]
+
+[ext_resource type="PackedScene" uid="uid://dpbmnjvebs7ar" path="res://entities/player/player.tscn" id="1_u8xny"]
+[ext_resource type="PackedScene" uid="uid://dj5r25iqhjodx" path="res://entities/rifle/rifle.tscn" id="2_cxisb"]
+
+[node name="Main" type="Node"]
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Player" parent="World" instance=ExtResource("1_u8xny")]
+
+[node name="Rifle" parent="World/Player" instance=ExtResource("2_cxisb")]
