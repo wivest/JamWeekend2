@@ -1,14 +1,34 @@
-[gd_scene load_steps=6 format=3 uid="uid://ccrnw2pgddnk8"]
+[gd_scene load_steps=8 format=3 uid="uid://ccrnw2pgddnk8"]
 
 [ext_resource type="PackedScene" uid="uid://dpbmnjvebs7ar" path="res://entities/player/player.tscn" id="1_u8xny"]
 [ext_resource type="PackedScene" uid="uid://dj5r25iqhjodx" path="res://entities/rifle/rifle.tscn" id="2_cxisb"]
+[ext_resource type="Script" path="res://ui/score.gd" id="2_dtrpy"]
 [ext_resource type="Texture2D" uid="uid://bfwa5urwiyq2b" path="res://icon.svg" id="3_k5c56"]
 [ext_resource type="PackedScene" uid="uid://b63v24gmeyapj" path="res://environment/spawner/spawner.tscn" id="4_d7kp7"]
+[ext_resource type="Script" path="res://ui/ammo.gd" id="5_eblyc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_powly"]
 size = Vector2(512, 32)
 
 [node name="Main" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Ammunition" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Ammo"
+script = ExtResource("5_eblyc")
+
+[node name="Score" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Score"
+script = ExtResource("2_dtrpy")
 
 [node name="World" type="Node2D" parent="."]
 

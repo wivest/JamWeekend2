@@ -4,7 +4,10 @@ extends Node2D
 @export var bullet_scene: PackedScene
 @export var power_multiplier: float = 2
 @export var shooting_speed: float = 1000
-@export var bullets: int = 0
+@export var bullets: int = 0:
+	set(v):
+		bullets = v
+		Manager.bullets = v
 
 @onready var muzzle: Marker2D = $Muzzle
 

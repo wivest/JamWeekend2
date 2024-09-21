@@ -7,13 +7,15 @@ extends RigidBody2D
 
 func _ready() -> void:
 	mass = primary_mass + rifle.get_mass()
+	Manager.bullets = rifle.bullets
+	Manager.score = 0
 
 
 func _process(_delta: float) -> void:
 	if position.y > get_viewport_rect().size.y / 2:
-		get_tree().reload_current_scene()
+		die()
 	if rifle.bullets == 0 and linear_velocity == Vector2.ZERO:
-		get_tree().reload_current_scene()
+		die()
 
 
 func _input(event):
@@ -37,3 +39,8 @@ func fire() -> void:
 func ammunition_entered(bullets: int) -> void:
 	rifle.bullets += bullets
 	mass = primary_mass + rifle.get_mass()
+	Manager.score += 1
+
+
+func die() -> void:
+	get_tree().reload_current_scene()
