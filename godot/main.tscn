@@ -7,6 +7,9 @@
 
 [node name="World" type="Node2D" parent="."]
 
-[node name="Player" parent="World" instance=ExtResource("1_u8xny")]
+[node name="Player" parent="World" node_paths=PackedStringArray("rifle") instance=ExtResource("1_u8xny")]
+rifle = NodePath("Rifle")
 
 [node name="Rifle" parent="World/Player" instance=ExtResource("2_cxisb")]
+
+[node name="Camera2D" type="Camera2D" parent="World"]
