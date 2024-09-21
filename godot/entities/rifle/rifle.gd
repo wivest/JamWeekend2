@@ -2,7 +2,8 @@ class_name Rifle
 extends Node2D
 
 @export var bullet_scene: PackedScene
-@export var shooting_speed: float = 300
+@export var power_multiplier: float = 2
+@export var shooting_speed: float = 1000
 @export var bullets: int = 0
 
 @onready var muzzle: Marker2D = $Muzzle
@@ -21,3 +22,8 @@ func shoot() -> Bullet:
 	owner.add_child(bullet)
 
 	return bullet
+
+
+func get_mass() -> float:
+	var bullet: Bullet = bullet_scene.instantiate() as Bullet
+	return bullets * bullet.mass

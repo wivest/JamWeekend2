@@ -1,7 +1,7 @@
 class_name Bullet
 extends Area2D
 
-@export var mass: float = 1
+@export var mass: float = 10
 
 var speed: float
 
