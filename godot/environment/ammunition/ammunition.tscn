@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvhp2hcxyrjva"]
+
+[ext_resource type="Script" path="res://environment/ammunition/ammunition.gd" id="1_lirwr"]
+[ext_resource type="Texture2D" uid="uid://bfwa5urwiyq2b" path="res://icon.svg" id="2_xqj6x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21wl1"]
+size = Vector2(32, 32)
+
+[node name="Ammunition" type="Area2D"]
+script = ExtResource("1_lirwr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_xqj6x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_21wl1")

@@ -3,6 +3,7 @@ extends Node2D
 
 @export var bullet_scene: PackedScene
 @export var shooting_speed: float = 300
+@export var bullets: int = 0
 
 @onready var muzzle: Marker2D = $Muzzle
 
@@ -12,6 +13,7 @@ func _process(_delta: float) -> void:
 
 
 func shoot() -> Bullet:
+	bullets -= 1
 	var bullet: Bullet = bullet_scene.instantiate() as Bullet
 
 	bullet.transform = muzzle.global_transform
