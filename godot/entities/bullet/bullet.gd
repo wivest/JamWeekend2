@@ -3,7 +3,7 @@ extends Area2D
 
 const LIMIT: float = 10000
 
-@export var mass: float = 10
+@export var mass: float = 5
 
 var speed: float
 

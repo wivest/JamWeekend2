@@ -63,7 +63,6 @@ rifle = NodePath("Rifle")
 
 [node name="Rifle" parent="World/Player" instance=ExtResource("2_cxisb")]
 position = Vector2(0, 8)
-bullets = 10
 
 [node name="Spawner" parent="World" instance=ExtResource("4_d7kp7")]
 

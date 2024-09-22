@@ -43,7 +43,7 @@ func fire() -> void:
 	mass = primary_mass + rifle.get_mass()
 
 	var direction: Vector2 = get_local_mouse_position().normalized()
-	var impulse: float = bullet.mass * rifle.shooting_speed * rifle.power_multiplier
+	var impulse: float = bullet.mass * rifle.shooting_speed
 	apply_central_impulse(impulse * -direction)
 
 

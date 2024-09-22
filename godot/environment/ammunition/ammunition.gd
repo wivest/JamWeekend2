@@ -3,7 +3,7 @@ extends Area2D
 
 signal collected
 
-@export var bullets: int = 5
+@export var bullets: int = 3
 
 
 func _ready() -> void:
