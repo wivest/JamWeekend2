@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccrnw2pgddnk8"]
+[gd_scene load_steps=8 format=3 uid="uid://ccrnw2pgddnk8"]
 
+[ext_resource type="FontFile" uid="uid://eii67vcv1sx4" path="res://ui/yoster.ttf" id="1_0kh56"]
 [ext_resource type="PackedScene" uid="uid://dpbmnjvebs7ar" path="res://entities/player/player.tscn" id="1_u8xny"]
 [ext_resource type="PackedScene" uid="uid://dj5r25iqhjodx" path="res://entities/rifle/rifle.tscn" id="2_cxisb"]
 [ext_resource type="Script" path="res://ui/score.gd" id="2_dtrpy"]
@@ -11,19 +12,39 @@
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Ammunition" type="Label" parent="CanvasLayer"]
-offset_right = 40.0
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Control" type="Control" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="Ammunition" type="Label" parent="CanvasLayer/MarginContainer/Control"]
+layout_mode = 1
+offset_right = 51.0
 offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_0kh56")
+theme_override_font_sizes/font_size = 32
 text = "Ammo"
 script = ExtResource("5_eblyc")
 
-[node name="Score" type="Label" parent="CanvasLayer"]
+[node name="Score" type="Label" parent="CanvasLayer/MarginContainer/Control"]
+layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
+offset_left = -101.0
+offset_bottom = 33.0
 grow_horizontal = 0
+theme_override_fonts/font = ExtResource("1_0kh56")
+theme_override_font_sizes/font_size = 32
 text = "Score"
 script = ExtResource("2_dtrpy")
 
