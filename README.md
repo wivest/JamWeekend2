@@ -1,6 +1,6 @@
 # Heavy Bullets
 
-Game was create for a game jam with a theme _Less is More_. Built with **Godot Engine 4**
+Game was created for a game jam with a theme _Less is More_. Built with **Godot Engine 4**
 
 ## Creating
 
