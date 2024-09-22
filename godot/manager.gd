@@ -17,6 +17,12 @@ var score: int = 0:
 		score_changed.emit(v)
 
 
+func _input(event) -> void:
+	if event is InputEventKey:
+		if event.keycode == KEY_ESCAPE and event.pressed:
+			get_tree().quit()
+
+
 func load_highscore() -> int:
 	var resource: HighScore = ResourceLoader.load(Manager.SAVE_PATH) as HighScore
 	return resource.score
