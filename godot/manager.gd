@@ -17,10 +17,6 @@ var score: int = 0:
 		score_changed.emit(v)
 
 
-func _ready() -> void:
-	save_highscore(0)
-
-
 func load_highscore() -> int:
 	var resource: HighScore = ResourceLoader.load(Manager.SAVE_PATH) as HighScore
 	return resource.score

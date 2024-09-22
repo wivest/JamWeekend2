@@ -6,12 +6,15 @@ extends RigidBody2D
 
 
 func _ready() -> void:
+	$Animation.play("default")
 	mass = primary_mass + rifle.get_mass()
 	Manager.bullets = rifle.bullets
 	Manager.score = 0
 
 
 func _process(_delta: float) -> void:
+	$Animation.flip_h = not get_local_mouse_position().x > 0
+
 	if position.y > get_viewport_rect().size.y / 2:
 		die()
 	if rifle.bullets == 0 and linear_velocity == Vector2.ZERO:

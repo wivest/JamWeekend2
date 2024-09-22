@@ -13,6 +13,8 @@ extends Node2D
 
 
 func _process(_delta: float) -> void:
+	var mouse_position: Vector2 = get_global_mouse_position() - global_position
+	$Sprite2D.flip_v = not mouse_position.x > 0
 	look_at(get_global_mouse_position())
 
 

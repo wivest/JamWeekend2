@@ -32,12 +32,6 @@ script = ExtResource("2_dtrpy")
 
 [node name="World" type="Node2D" parent="."]
 
-[node name="Player" parent="World" node_paths=PackedStringArray("rifle") instance=ExtResource("1_u8xny")]
-rifle = NodePath("Rifle")
-
-[node name="Rifle" parent="World/Player" instance=ExtResource("2_cxisb")]
-bullets = 10
-
 [node name="Floor" type="StaticBody2D" parent="World"]
 position = Vector2(0, 128)
 
@@ -47,6 +41,13 @@ texture = ExtResource("3_k5c56")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Floor"]
 shape = SubResource("RectangleShape2D_powly")
+
+[node name="Player" parent="World" node_paths=PackedStringArray("rifle") instance=ExtResource("1_u8xny")]
+rifle = NodePath("Rifle")
+
+[node name="Rifle" parent="World/Player" instance=ExtResource("2_cxisb")]
+position = Vector2(0, 8)
+bullets = 10
 
 [node name="Spawner" parent="World" instance=ExtResource("4_d7kp7")]
 
