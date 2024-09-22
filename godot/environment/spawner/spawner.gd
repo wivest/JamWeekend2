@@ -12,12 +12,6 @@ func _process(_delta: float):
 	while on_start > 0:
 		spawn()
 		on_start -= 1
-	
-
-func _input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == 2 and event.pressed:
-			spawn()
 
 
 func spawn() -> void:
