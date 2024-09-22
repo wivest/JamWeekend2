@@ -4,6 +4,8 @@ extends RigidBody2D
 @export var rifle: Rifle
 @export var primary_mass: float = 10
 
+var last_bullet: bool = false
+
 
 func _ready() -> void:
 	$Animation.play("default")
@@ -17,8 +19,12 @@ func _process(_delta: float) -> void:
 
 	if position.y > get_viewport_rect().size.y / 2:
 		die()
-	if rifle.bullets == 0 and linear_velocity == Vector2.ZERO:
+	if rifle.bullets == 0 and not last_bullet and linear_velocity.length() < 0.01:
 		die()
+
+	if last_bullet and linear_velocity.length() < 0.01:
+		var timer: SceneTreeTimer = get_tree().create_timer(0.5)
+		timer.timeout.connect(func(): last_bullet = not linear_velocity.length() < 0.01)
 
 
 func _input(event):
@@ -31,6 +37,8 @@ func fire() -> void:
 	if rifle.bullets == 0:
 		return
 
+	if rifle.bullets == 1:
+		last_bullet = true
 	var bullet: Bullet = rifle.shoot()
 	mass = primary_mass + rifle.get_mass()
 
